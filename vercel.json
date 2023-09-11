@@ -5,7 +5,7 @@
 
 			{
 
-					"src": "./app.js",
+					"src": "./server.js",
 
 					"use": "@vercel/node"
 
@@ -19,7 +19,7 @@
 
 					"src": "/(.*)",
 
-					"dest": "/app.js"
+					"dest": "/server.js"
 
 			}
 
