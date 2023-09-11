@@ -1,0 +1,22 @@
+<%- include('partials/headerProfile') -%>
+
+<body class="bg-cyan-50">
+	<div class="flex justify-center items-center mt-40 mb-64 text-6xl font-serif font-normal text-emerald-950">
+		<h1>Favourites</h1>
+	</div>
+	<div class="flex justify-center">
+		<div class="grid grid-cols-1 sm:grid-cols-2 gap-28 justify-center mb-24">
+			<% favourites.forEach(post => { %>
+				<div class="drop-shadow-xl shadow-2xl rounded-2xl px-12 py-12">
+					<img src="<%= post.image %>" alt="" class='max-w-2xl max-h-2xl mb-4'>
+					<h3 class="text-2xl font-sans font-semibold text-emerald-950 mb-4"><%= post.likes %> likes</h3>
+					<h3 class="text-4xl font-sans font-bold text-emerald-950 mb-4"><%= post.tripName %></h3>
+					<h3 class="text-xl font-sans text-emerald-950 mb-2">Posted at <%= post.createdAt.toLocaleString(undefined, { hour: '2-digit', minute: '2-digit', second: '2-digit' }) %></h3>
+					<h3 class="text-xl font-sans text-emerald-950 mb-4">Posted on <%= post.createdAt.toLocaleString(undefined, { year: 'numeric', month: '2-digit', day: '2-digit'}) %></h3>
+					<h3 class="text-2xl font-sans font-semibold text-emerald-950 mb-8"><%= post.user.userName %></h3>
+					<a href="/favourites/<%= post._id %>" class="text-emerald-950 text-3xl font-sans font-semibold"><button class="bg-teal-500 px-20 py-4 rounded-xl hover:bg-teal-300">Saw that!</button></a>
+				</div>
+			<% }) %>
+		</div>
+	</div>
+</body>

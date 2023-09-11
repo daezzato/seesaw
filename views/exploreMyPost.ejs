@@ -1,0 +1,41 @@
+<%- include('partials/headerProfile') -%>
+<body class="bg-cyan-50">
+	<div>
+		<div class="flex flex-col items-center mt-24">
+			<div>
+				<img src="<%= myPost.image %>" alt="" class="max-w-3xl max-h-3xl">
+				<%if(myPost.user.toString() !== user.id.toString()) { %>
+					<div>
+						<form action="/posts/likePost/<%= myPost.id %>?_method=PUT" method="POST">
+							<button type="submit" class="mt-8 bg-teal-500 px-6 py-4 rounded-xl hover:bg-teal-300 text-emerald-950 text-xl font-sans font-semibold">Like</button>
+						</form>
+					</div>
+				<% } %>
+			</div>
+		</div>
+	</div>
+
+	<div class="flex flex-col items-center mx-auto max-w-3xl mt-12">
+		<div class="ml-auto">
+			<h3 class="text-2xl font-sans font-semibold text-emerald-950 mb-4"><%= myPost.likes %> likes</h3>
+			<h3 class="text-xl font-sans text-emerald-950 mb-2 ">Posted on <%= myPost.createdAt.toLocaleTimeString(undefined, { weekday: 'long', hour: '2-digit', minute: '2-digit', second: '2-digit' }) %></h3>
+			<h3 class="text-xl font-sans text-emerald-950 mb-6">Posted on <%= myPost.createdAt.toLocaleDateString(undefined, {  year: 'numeric', month: 'long', day: 'numeric' }) %> </h3>		
+		</div>
+		<div class= "flex flex-col items-center max-w-3xl mx-auto">
+			<div class="drop-shadow-xl shadow-2xl rounded-2xl px-12 py-12 mt-6 mb-24 mr-auto">
+				<h1 class="text-emerald-950 text-3xl font-sans font-extrabold mb-8"><%= myPost.tripName %>!</h1>
+				<h3 class="text-teal-500 text-xl font-sans font-bold mb-8"><%= myPost.tripDates[0].toLocaleDateString() %> - <%= myPost.tripDates[1].toLocaleDateString() %> </h3>
+				<h3 class="text-emerald-950 text-xl font-sans font-bold mb-8"><%= myPost.country %></h3>
+				<h3 class="text-emerald-950 text-xl font-sans font-bold mb-20"><%= myPost.cities %></h3>
+				<h3 class="text-emerald-950 text-lg font-sans font-semibold"><%= myPost.description %> The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog.</h3>
+			</div>
+		</div>
+			<div>
+				<%if(myPost.user == user.id){ %>
+				<form action="/posts/deletePost/<%= myPost.id %>?_method=DELETE" method="POST">
+						<button type="submit" class="text-2xl text-emerald-950 font-sans font-semibold bg-teal-500 px-12 py-4 mb-24 rounded-xl hover:bg-teal-300">Delete Post</button>
+					</form>
+				<%}%>
+			</div>
+	</div>
+</body>

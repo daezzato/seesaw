@@ -1,0 +1,51 @@
+<%- include('partials/headerProfile') -%>
+
+<body class="bg-cyan-50">
+	<div class="flex justify-center items-center mt-40 mb-20 text-6xl font-serif font-normal text-emerald-950">
+		<h1>Add Post</h1>
+	</div>
+	<div class="flex justify-center">
+		<div class="mb-24">
+			<div class="drop-shadow-xl shadow-2xl rounded-2xl px-16 py-24">
+				<form action="/posts/createPost" enctype="multipart/form-data" method="POST">
+					<div class="mb-16">
+						<label for="tripName" class="text-2xl font-sans font-semibold text-emerald-950">Trip Name: </label>
+						<input type="text"  name="tripName" class="text-2xl font-sans font-semibold text-emerald-950 rounded-2xl py-4 px-4 ml-4">
+					</div>
+					<div class="mb-16">
+						<label for="country" class="text-2xl font-sans font-semibold text-emerald-950 ">Country: </label>
+							<select aria-label="Default select example" class="text-2xl font-sans font-semibold text-emerald-950 py-4 px-4 rounded-2xl ml-4" name="country">
+								<option selected class="text-2xl font-sans font-semibold text-emerald-950">Select Country</option>
+								<% const countries = [
+								"Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo", "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati",  "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Korea", "North Macedonia", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Korea", "South Sudan", "Spain", "SriLanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"] %>
+									<% for (let i = 0; i < countries.length; i++) { %>
+									<option value="<%= countries[i] %>"><%= countries[i] %></option>
+									<% } %>
+						</select>
+					</div>
+					<div class="mb-16">
+						<label for="tripDates" class="text-2xl font-sans font-semibold text-emerald-950">Trip Dates: </label>
+						<input type="date" name="tripDates1" class="text-2xl font-sans font-semibold text-emerald-950 py-4 px-4 rounded-2xl ml-4">
+						<span> - </span>
+						<input type="date" name="tripDates2" class="text-2xl font-sans font-semibold text-emerald-950 py-4 px-4 rounded-2xl">
+					</div>
+					<div class="mb-16">
+						<label for="cities" class="text-2xl font-sans font-semibold text-emerald-950">Cities: </label>
+						<input type="text" name="cities" class="text-2xl font-sans font-semibold text-emerald-950 rounded-2xl py-4 px-4 ml-4">
+					</div>
+					<div class="mb-16">
+						<label for="description" class="text-2xl font-sans font-semibold text-emerald-950 mb-4">Description: </label>
+						<textarea name="description" class="text-2xl font-sans font-semibold text-emerald-950 rounded-2xl ml-4"></textarea>
+					</div>
+					<div class="mb-16">
+						<label for="imageUpload" class="text-2xl font-sans font-semibold text-emerald-950 mb-4">Images </label>
+						<input type="file" name="file" class="text-2xl font-sans font-semibold text-emerald-950 mx-4">
+					</div>
+					<div class="flex justify-center">
+						<button type="submit" value="Upload" class=" text-emerald-950 text-3xl font-sans font-semibold bg-teal-500 px-12 py-4 rounded-xl hover:bg-teal-300">Post</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
