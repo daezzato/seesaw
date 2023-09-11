@@ -9,6 +9,7 @@ const logger = require('morgan')
 const flash = require('express-flash')
 const mainRoutes = require('./routes/main')
 const postsRoutes = require('./routes/posts')
+const path = require('path')
 
 const connectDB = require('./config/database')
 
